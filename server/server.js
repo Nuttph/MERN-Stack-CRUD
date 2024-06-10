@@ -43,4 +43,4 @@ readdirSync('./Routes').map((r)=>{
     app.use('/api',require('./Routes/'+r)) //ต่อ string
 })
 
-app.listen(5000,()=>console.log("Server is running 5000")); // listen(port,callback function)
+app.listen(5000,()=>console.log("Sercer เปิดแล้ว -> http://localhost:5000")); // listen(port,callback function)
