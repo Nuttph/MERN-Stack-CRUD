@@ -5,7 +5,7 @@ import axios from 'axios'
 //name,detail,price
 const ShowData = () => {
   const [data, setData] = useState([])
-
+  const [re,set] = useState(0)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -16,14 +16,14 @@ const ShowData = () => {
       }
     }
     fetchData()
-  }, [])
+  }, [re])
 
   const fakeData = {
     name:"Nuttaphon",
     detail:"Love Thailand",
     price:2500,
   }
-  const handleCreate =async(fakeData)=>{
+  const handleCreate =async()=>{
     try{
       const res = await axios.post('http://localhost:5000/api/product',fakeData)
       console.log("it"+res);
@@ -31,19 +31,32 @@ const ShowData = () => {
       console.log(err);
     }
   }
+  const handleDelete = async(id) =>{
+    await axios.delete('http://localhost:5000/api/product/'+id).then().catch((err)=>console.log(err))
+    set(1)
+    console.log('test');
+  }
   return (
-    <div>
-      {data.map((item, index) => (
-        <div key={index}>{item.name}</div> // Assuming the items have a "name" property
-      ))}
-      <form action="">
-
-      <button onClick={() => console.log(data)}>Click</button>
-      <button onClick={() => {
-        handleCreate(fakeData)
-        }}>Click ADD</button>
+    <>
+    <form>
+    <button onClick={()=>{
+      handleCreate()
+      set(0)
+    }}>Add data</button>
+    </form>
+      <form onSubmit={(e)=>{
+      
+      }}>
+        {data.map((item,index)=>(
+          <div key={index}>
+            <div>{item.name} && {item._id}</div>
+            <button onClick={()=>{
+              handleDelete(item._id)
+            }}>{"Delete"}</button>
+          </div>
+        ))}
       </form>
-    </div>
+    </>
   )
 }
 
