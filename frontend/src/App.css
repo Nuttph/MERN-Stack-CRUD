@@ -1,0 +1,22 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html.dark{
+  --bgMain: rgb(38, 38, 38);
+  --btnMain: rgb(157, 0, 157);
+}
+:root{
+  --bgMain: rgb(255, 255, 224);
+  --btnMain: rgb(53, 61, 173);
+}
+body{
+  background-color: var(--bgMain);
+  transition: 0.2s all;
+}
+
+.btnCustom{
+  background-color: var(--btnMain);
+  color:white
+}
