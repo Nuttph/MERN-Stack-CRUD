@@ -1,2 +1,2 @@
-# EL-MERN-Stack
+# MERN-Stack
 MEAN Stact Production
