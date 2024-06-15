@@ -1,6 +1,10 @@
 # MERN-Stack
 Form Baisc with MERN Stack
-
+Tech Stack & What is MERN Stack is mean..
+-M. mongoDB
+-E. Express.JS
+-R. React.JS
+-N. Node.js
 ## Demo
 
 .vercel## Color Reference
